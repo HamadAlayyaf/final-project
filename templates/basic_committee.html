@@ -16,8 +16,11 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Welcoome</a>
-            <div class="collapse navbar-collapse" id="navbarText">
+            <a class="navbar-brand" href="#">Committee</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="" href="committee_home">Home</a>
@@ -26,6 +29,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Project</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <li><a class="dropdown-item" href="committee_add_idea">Add the suggested idea</a></li>
+                            <li><a class="dropdown-item" href="show_suggested_idea">show suggested idea</a></li>
                             <li><a class="dropdown-item" href="committee_show_idea">show the completed idea</a></li>
                         </ul>
                     </li>
@@ -50,10 +54,17 @@
                             <li><a class="dropdown-item" href="#">Distribution of doctors to groups</a></li>
                         </ul>
                     </li>
+                </ul>
+                    <form class="d-flex">
+                        <a class="navbar-brand">Dr.Sultan</a>
+                        <a class="navbar-brand" href="loginCommittee">Logout</a>
+                    </form>
+
             </div>
         </div>
     </nav>
 </body>
 </html>
-{%block content%}
-{%endblock%}
+
+{% block content %}
+{% endblock content %}

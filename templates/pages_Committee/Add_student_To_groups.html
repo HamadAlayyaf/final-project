@@ -61,13 +61,13 @@
             <label>Choose a Studnet:</label>
             <select name="std">
               {% for std in student %}
-              <option value="{{std.id_Students}}">{{std.id_Students}}</option>
+                <option value="{{std.id_Students}}">{{std.id_Students}}</option>
               {% endfor %}
             </select>
             <label>Choose a Group:</label>
             <select name="group">
               {% for group in groups %}
-              <option value="{{group.id_groups}}">{{group.name_groups}}</option>
+                <option value="{{group.id_groups}}">{{group.name_groups}}</option>
               {% endfor %}
             </select>
             <br><br>

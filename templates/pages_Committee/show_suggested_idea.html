@@ -1,0 +1,62 @@
+{%extends 'basic_committee.html'%}
+
+{%block content%}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<form class="add-crn">
+<div class="container">
+    
+
+    <table class="table table-bordered">
+    <thead>
+            
+        <tr>
+            <th scope="col">Project ID</th>            
+            <th scope="col">Project idea</th>            
+            <th scope="col">filled_projects</th>             
+            <th scope="col">descriotion_projects</th>             
+            <th scope="col">file_project</th>             
+            <th scope="col">Name doctor</th>           
+            <th scope="col">status</th>  
+                     
+        </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+            
+                {%for pro in project%}
+            
+            <td>{{pro.id_projects}}</td>
+            <td>{{pro.name_projects}}</td>
+            <td>{{pro.filled_projects}}</td>
+            <td>{{pro.descriotion_projects}}</td>
+            
+            <td>
+                <a href="{{pro.file_project.url}}"Dwonload="pro.file_project.url">Dwonload Files</a>
+                </td>
+            <td>{{pro.id_Doctors_fk}}</td>
+            <td>{{pro.status}}</td>
+                
+            
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+    
+</div>
+
+
+</form>
+
+</body>
+
+</html>
+{%endblock%}

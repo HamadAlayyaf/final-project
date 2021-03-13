@@ -12,7 +12,8 @@ class Doctors(models.Model):
     id_groups_fk = models.ForeignKey(Groups, models.DO_NOTHING, db_column='id_Groups_fk', blank=True, null=True)  # Field name made lowercase.
     id_examiners_fk = models.ForeignKey(Examiners, models.DO_NOTHING, db_column='id_Examiners_fk', blank=True, null=True)  # Field name made lowercase.
     def __str__(self):
-        return self.name_Doctors
+        return str(self.id_Doctors)
+
     class Meta:
         managed = False
         db_table = 'doctors'

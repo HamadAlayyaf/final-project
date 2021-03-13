@@ -3,7 +3,7 @@
 
 
 {%block content%}
-
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,7 +62,52 @@
   </div>
           
   </body>
-</html> 
+</html>  -->
 
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+<form class="add-crn">
+  <div class="container">
+    
+
+    <table class="table table-bordered">
+      <thead>
+            
+          <tr>
+            <th scope="col">Doctor ID</th>            
+            <th scope="col">Doctor Name</th>            
+            <th scope="col">Group ID</th>            
+            <th scope="col">Edit</th>            
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              {%for doctorr in doctor%}
+             
+              <td>{{doctorr.id_Doctors}}</td>
+              <td>{{doctorr.name_Doctors}}</td>
+              <td>{{doctorr.id_groups_fk}}</td>
+              <td><a class="dropdown-item" href="{%url 'Doctor_update' doctorr.id_Doctors%}">Edit</a></td>
+             
+              
+            </tr>
+            {% endfor %}
+             
+        </tbody>
+      </table>
+      
+  </div>
+
+  
+</form>
+
+</body>
+
+</html>
 
 {%endblock%}
