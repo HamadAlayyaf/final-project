@@ -17,8 +17,9 @@ urlpatterns = [
     path('committee_add_student_to_groups',  views.committee_add_student_to_groups,   name='committee_add_student_to_groups'),
     path('committee_add_doctor_to_groups',   views.committee_add_doctor_to_groups,    name='committee_add_doctor_to_groups'),
     path('Add_CRN',                          views.Add_CRN,                           name='Add_CRN'),
-    path('<int:id>',                         views.update,                            name='update'),#Url for page update
+    path('<int:id>/update/',                  views.update,                            name='update'),#Url for page update
     path('<int:id>/Doctor_update/',          views.Doctor_update,                     name='Doctor_update'),
+    path('<int:id>/Student_update/',         views.Student_update,                    name='Student_update'),
 
     # doctors paths   
 

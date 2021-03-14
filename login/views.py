@@ -5,6 +5,7 @@ from django.templatetags.static import static
 from django.utils.regex_helper import Group
 from django.http import HttpResponse
 from projects.models import Projects
+# from students.models import Students
 from django import forms
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
@@ -12,6 +13,7 @@ from .models import Doctors,CommitteesCharis,Students,Groups
 from projects.forms import Add_Idea,Projects
 from Groups.forms import CRN 
 from doctors.forms import Doc,Doctors
+from students.forms import Stu
 from django.shortcuts import redirect#import libray redirect 
 # Create your views here.
 #from projects.forms import Add_Idea
@@ -82,7 +84,8 @@ def committee_add_idea(request):
         Idea = Add_Idea(request.POST, request.FILES)
         if Idea.is_valid():
             Idea.save()
-            return redirect('committee_home')
+            return redirect('show_suggested_idea')
+            return redirect('show_suggested_idea')
 
     context={
         'from':Add_Idea(),
@@ -113,24 +116,57 @@ def committee_show_idea(request):
 
 
 def committee_add_student_to_groups(request):
+    if request.method =='POST':
+        stu = Stu(request.POST)
+        if stu.is_valid():
+            stu.save()
+
+    
+    context = {
+        'forms':Stu(),
+        'student':Students.objects.all(),
+    }
+    return render(request,'pages_Committee/Add_student_To_groups.html', context)
+
+def Student_update(request,id):
+    id_Stu = Students.objects.get(id_students=id)
+    if request.method =='POST':
+        stu_save = Stu(request.POST,instance= id_Stu)
+        if stu_save.is_valid():
+            stu_save.save()
+            return redirect('/committee_add_student_to_groups')
+
+    else:
+        stu_save = Stu(instance=id_Stu)
+        
+    context={
+        'forms':stu_save
+
+    }
+    return render(request,'pages_Committee/Student_update.html', context)
+
+
+
+
+
     # studnetData = request.GET.get('stdselect')
     # groupData = request.GET.get('groupselect')
     # databoth = Students.objects.update(name_Students=studnetData)
     #studnetField = Students.objects.filter(id_groups_fk=None)
-    groupField = Groups.objects.exclude(id_groups=None)
-    std  = Students.objects.filter(id_groups_fk=None)
-    if request.method == 'POST':
-        studentsID = request.POST.create('std')
-        groupID = request.POST.create('group')
-        data = Students,Groups(id_Students = studentsID, id_groups = groupID)
-        data.save()
-    #studnetField.save()
-    context = {
-            'student':std,
-            'groups': groupField,
-    }
+    # groupField = Groups.objects.exclude(id_groups=None)
+    # std  = Students.objects.filter(id_groups_fk=None)
+    # if request.method == 'POST':
+    #     studentsID = request.POST.create('std')
+    #     groupID = request.POST.create('group')
+    #     data = Students,Groups(id_Students = studentsID, id_groups = groupID)
+    #     data.save()
+    # #studnetField.save()
+    # context = {
+    #         'student':std,
+    #         'groups': groupField,
+    # }
 
-    return render(request, 'pages_Committee/Add_student_To_groups.html', context)
+    # return render(request, 'pages_Committee/Add_student_To_groups.html', context)
 
 
 # def committee_add_student_to_groups(request):
