@@ -27,7 +27,7 @@
             <th scope="col">ID Doctor 1</th>   
             <th scope="col">ID Doctor 2</th>            
             <th scope="col">ID Doctor 3</th>            
-            <th scope="col">file Evaluation</th>           
+                       
           </tr>
         </thead>
         <tbody>
@@ -37,15 +37,9 @@
              
               <td>{{evaluation.id_evaluation}}</td>
               <td>{{evaluation.id_groups_fk}}</td>
-              <td>{{evaluation.id_doctor_fk}}</td>
-              <td>{{evaluation.id_doctor_fk2}}</td>
-              <td>{{evaluation.id_doctor_fk3}}</td>
-              <td>
-                <a class="btn btn-outline-primary" href="{{evaluation.file_evaluation.url}}"Dwonload="evaluation.file_evaluation.url">Dwonload Files</a>
-                </td>
-              
-             
-              
+              <td>{{evaluation.id_doctor_fk}}<br> <div style="padding-top:10px;"><a  class="btn btn-outline-primary" href="{{evaluation.file_evaluation.url}}"Dwonload="evaluaion.file_evaluation.url">Download Files</a></div</td>
+              <td>{{evaluation.id_doctor_fk2}}<br><div style="padding-top:10px;"><a class="btn btn-outline-primary" href="{{evaluation.file_evaluation_dr2.url}}"Dwonload="evaluaion.file_evaluation_dr2.url">Download Files</a></div></td>
+              <td>{{evaluation.id_doctor_fk3}}<br><div style="padding-top:10px;"><a class="btn btn-outline-primary" href="{{evaluation.file_evaluation_dr3.url}}"Dwonload="evaluaion.file_evaluation_dr3.url">Download Files</a></div></td>              
             </tr>
              {% endfor %}
              
