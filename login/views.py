@@ -512,13 +512,13 @@ def Chose_Enter(request,id):
     context={
         'from':Chose_save
     }
-    return render(request,'pages_students/Chose_Enter.html', context)
+    return render(request,'pages_Students/Chose_Enter.html', context)
 
 def student_show_archived_idea(request):
     context = {
         'archiveed': Projects.objects.all().filter(status = 'anvilable').exclude(name_projects = None).exclude(filled_projects = None).exclude(descriotion_projects = None).exclude(id_Doctors_fk = None).exclude(id_groups_fk = None),
     }
-    return render(request, 'pages_students/student_show_archived_idea.html' ,context)
+    return render(request, 'pages_Students/student_show_archived_idea.html' ,context)
 
 def student_upload_project(request):
     if request.method =='POST':
@@ -530,7 +530,7 @@ def student_upload_project(request):
     context ={
         'Upload_form': UploadIdeaForm(),
     }
-    return render(request, 'pages_students/student_upload_project.html' ,context)
+    return render(request, 'pages_Students/student_upload_project.html' ,context)
 
 def student_choose_groups(request):
     if request.method =='POST':
@@ -543,7 +543,7 @@ def student_choose_groups(request):
         'from': InsertIdea(),
         'projects': Projects.objects.all()
     }
-    return render(request, 'pages_students/student_choose_groups.html' ,context)
+    return render(request, 'pages_Students/student_choose_groups.html' ,context)
 
 def choose_group(request,id):
     choose_group = Students.objects.get(id_students=id)
@@ -557,10 +557,10 @@ def choose_group(request,id):
     context={
         'from':save_group
     }
-    return render(request,'pages_students/choose_group.html', context)
+    return render(request,'pages_Students/choose_group.html', context)
 
 def student_show_my_group(request):
     context = {
         'grops': Students.objects.all().filter(id_groups_fk = student_group_id()),
     }
-    return render(request, 'pages_students/student_show_my_group.html' ,context)
+    return render(request, 'pages_Students/student_show_my_group.html' ,context)
