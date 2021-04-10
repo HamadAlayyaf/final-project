@@ -328,16 +328,17 @@ def Add_CRN(request):
 def CRN_update(request,id):
     groub_id = Groups.objects.get(id_groups=id)
     if request.method =='POST':
-        groub_save = CRN(request.POST,instance=groub_id)
-        if groub_save.is_valid():
-            groub_save.save()
+        group_save = CRN(request.POST,instance=groub_id)
+        if group_save.is_valid():
+            print('this is not found')
+            group_save.save()
             return redirect('/Add_CRN')
 
     else:
-        groub_save = CRN(instance=groub_id)
+        group_save = CRN(instance=groub_id)
         
     context={
-        'form':groub_save
+        'form':group_save
 
     }
     return render(request,'pages_Committee/CRN_update.html', context)

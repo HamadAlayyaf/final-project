@@ -88,7 +88,7 @@ class ChoiceIdea(forms.ModelForm):
 class UploadIdeaForm(forms.ModelForm):
     class Meta:
         model = Projects
-        fields=['name_projects','filled_projects','descriotion_projects','file_project','id_projects','status']
+        fields=['name_projects','filled_projects','descriotion_projects','file_project','id_projects','id_department_fk','status']
 
         widgets ={
             'id_projects':forms.TextInput(attrs={'class':'form-control'}),
@@ -96,6 +96,7 @@ class UploadIdeaForm(forms.ModelForm):
             'filled_projects':forms.TextInput(attrs={'class':'form-control'}),
             'descriotion_projects':forms.TextInput(attrs={'class':'form-control'}),
             'file_project':forms.FileInput(attrs={'class':'form-control'}),
+            'id_department_fk':forms.Select(attrs={'class':'form-select'}),
             'status':forms.Select(attrs={'class':'form-select'}),
         } 
 
