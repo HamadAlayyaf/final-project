@@ -11,18 +11,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .container{
-            text-align: center;
-            padding-top:100px
-        }
-        .s {
-            padding-top:50px
-        }
+        .container {
+        padding-top:100px;
+        text-align: center;
+    }
+    .container .row{
+        padding-bottom: 30px;
+    }
+    .container .card-foter{
+        padding-bottom:50px;
+    }
     </style>
 </head>
     <body>
-        <form method="GET">
             <div class="container">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row">
+                    {{create}}
+                    </div>
+                    <div class="card-foter">
+                        <button type="submit" class="btn btn-outline-primary">submit</button>
+                    </div>
+                </form>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -49,7 +60,6 @@
                     </tbody>
                 </table>
             </div>
-        </form>
     </body>
 </html>
 

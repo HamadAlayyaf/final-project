@@ -171,9 +171,23 @@ class DoctorEvaluatingGroupForm (forms.ModelForm):
 
         widgets ={
             'id_evaluation':forms.Select(attrs={'class':'form-control'}),
-            #'id_groups_fk':forms.Select(attrs={'class':'form-control'}),
             'file_evaluation':forms.FileInput(attrs={'class':'form-control'}),
             'file_evaluation_dr2':forms.FileInput(attrs={'class':'form-control'}),
             'file_evaluation_dr3':forms.FileInput(attrs={'class':'form-control'}),
             
         } 
+
+class DistrbutionCreate(forms.ModelForm):
+    class Meta:
+        model= Evaluation
+        fields=['id_groups_fk','id_doctor_fk', 'id_doctor_fk2', 'id_doctor_fk3','id_department']
+#
+
+        widgets ={
+            'id_groups_fk':forms.Select(attrs={'class':'form-select'}),
+            'id_doctor_fk':forms.Select(attrs={'class':'form-select'}),
+            'id_doctor_fk2':forms.Select(attrs={'class':'form-select'}),
+            'id_doctor_fk3':forms.Select(attrs={'class':'form-select'}),
+            'id_department':forms.Select(attrs={'class':'form-select'}),
+        } 
+        

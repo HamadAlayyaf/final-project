@@ -23,9 +23,9 @@
           <tr>
               <th scope="col">ID Evaluation</th>            
               <th scope="col">ID Groups </th>            
-              <th scope="col">ID Doctor 1</th>   
-              <th scope="col">ID Doctor 2</th>            
-              <th scope="col">ID Doctor 3</th>                      
+              <th scope="col">Name Doctor 1</th>   
+              <th scope="col">Name Doctor 2</th>            
+              <th scope="col">Name Doctor 3</th>                      
             </tr>
           </thead>
           <tbody>
@@ -34,9 +34,9 @@
                 {% for evaluaion in evaluation %}
                 <td>{{evaluaion.id_evaluation}}</td>
                 <td>{{evaluaion.id_groups_fk}}</td>
-                <td>{{evaluaion.id_doctor_fk}}<br> <div style="padding-top:10px;"><a  class="btn btn-outline-primary" href="{{evaluaion.file_evaluation.url}}"Dwonload="evaluaion.file_evaluation.url">Dwonload Files</a></div</td>
-                <td>{{evaluaion.id_doctor_fk2}}<br><div style="padding-top:10px;"><a class="btn btn-outline-primary" href="{{evaluaion.file_evaluation_dr2.url}}"Dwonload="evaluaion.file_evaluation_dr2.url">Dwonload Files</a></div></td>
-                <td>{{evaluaion.id_doctor_fk3}}<br><div style="padding-top:10px;"><a class="btn btn-outline-primary" href="{{evaluaion.file_evaluation_dr3.url}}"Dwonload="evaluaion.file_evaluation_dr3.url">Dwonload Files</a></div></td>
+                <td>{{evaluaion.id_doctor_fk}}<br><!--<div style="padding-top:10px;"><a  class="btn btn-outline-primary" href="{{evaluaion.file_evaluation.url}}"Dwonload="evaluaion.file_evaluation.url">Dwonload Files</a></div>--></td> 
+                <td>{{evaluaion.id_doctor_fk2}}<br><!--<div style="padding-top:10px;"><a class="btn btn-outline-primary" href="{{evaluaion.file_evaluation_dr2.url}}"Dwonload="evaluaion.file_evaluation_dr2.url">Dwonload Files</a></div>--></td>
+                <td>{{evaluaion.id_doctor_fk3}}<br><!--<div style="padding-top:10px;"><a class="btn btn-outline-primary" href="{{evaluaion.file_evaluation_dr3.url}}"Dwonload="evaluaion.file_evaluation_dr3.url">Dwonload Files</a></div>--></td>
 
                 
               </tr>

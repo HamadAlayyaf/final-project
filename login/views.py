@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.conf import settings
 from django.templatetags.static import static
 from .models import Department, Evaluation, Projects, Students
-from .forms import Add_Idea, CRN, ChoiceIdea, Doc, Stu, Distrbution ,UploadIdeaForm, Add_GRP, ChoiceIdea , Choose_group, InsertIdea, ChooseGroupDoctor, DoctorCreatingGroup, DoctorEvaluatingGroupForm
+from .forms import Add_Idea, CRN, ChoiceIdea, Doc, Stu, Distrbution ,UploadIdeaForm, Add_GRP, ChoiceIdea , Choose_group, InsertIdea, ChooseGroupDoctor, DoctorCreatingGroup, DoctorEvaluatingGroupForm , DistrbutionCreate
 from django import forms
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
@@ -348,7 +348,14 @@ def show_evaluation(request):
     return render(request, 'pages_Committee/show_evaluation.html', evaluate)
 
 def distrbution_doctors_to_groups(request):
+    if request.method =='POST':
+        Idea = DistrbutionCreate(request.POST, request.FILES)
+        if Idea.is_valid():
+            Idea.save()
+            
+
     distrbution_doctors = {
+        'create' : DistrbutionCreate(),
         'evaluator' : Evaluation.objects.filter( Q(id_doctor_fk = None) | Q(id_doctor_fk2 = None) | Q(id_doctor_fk3 = None) ).exclude(id_groups_fk = None).filter(id_department = committee_department_id()),
         }
     return render(request, 'pages_Committee/distrbution_doctors_to_groups.html', distrbution_doctors)
