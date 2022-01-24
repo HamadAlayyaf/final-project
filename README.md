@@ -1,6 +1,6 @@
 # Welcome to our final project 
-## name of the project is manage the graduate project system 
-## the project aims to transaction from papers to systems 
+## Title Manage the Graduate Project System. 
+## The project aims to transaction from papers to systems 
 ## and we using Django framework. 
 #### To start learn from our documentation > https://github.com/hamad57/files-of-workteam/blob/main/Hamad/djangoCourse.txt
 #### to run the django follow this steps :
